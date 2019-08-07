@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.fasttrackit</groupId>
-    <artifactId>MyFirstSerenityProject</artifactId>
+    <groupId>org.fasttrack</groupId>
+    <artifactId>MyFirstSerenityProjectQA16</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
@@ -12,7 +12,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <serenity.version>2.0.66</serenity.version>
+        <serenity.version>1.8.3</serenity.version>
+        <webdriver.driver>chrome</webdriver.driver>
     </properties>
 
     <repositories>
@@ -67,14 +68,14 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>2.19.1</version>
                 <configuration>
                     <skip>true</skip>
                 </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-failsafe-plugin</artifactId>
-                <version>2.22.1</version>
+                <version>2.19.1</version>
                 <configuration>
                     <includes>
                         <include>**/*Test.java</include>
@@ -85,6 +86,8 @@
                     <argLine>-Xmx512m</argLine>
                     <systemPropertyVariables>
                         <webdriver.driver>${webdriver.driver}</webdriver.driver>
+<!--                        <webdriver.chrome.driver>resources/chromedriver</webdriver.chrome.driver>-->
+                        <webdriver.chrome.driver>resources/chromedriver.exe</webdriver.chrome.driver>
                     </systemPropertyVariables>
                 </configuration>
                 <executions>
