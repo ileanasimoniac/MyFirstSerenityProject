@@ -5,14 +5,14 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import org.fasttrack.steps.LoginSteps;
+import org.fasttrack.steps.WhishListSteps;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
 @RunWith(SerenityRunner.class)
-public class LoginTest {
+public class WhishlistTest {
 
     @Managed(uniqueSession = true)
     private   WebDriver driver;
@@ -24,7 +24,7 @@ public class LoginTest {
 
 
     @Steps
-    private LoginSteps loginSteps;
+    private WhishListSteps whishListSteps;
 
 
     private String userEmail = "cosmin@fasttrackit.org";
@@ -32,17 +32,10 @@ public class LoginTest {
     private String userName = "asdasda asdasd";
 
     @Test
-    public void validLoginTest() {
-        loginSteps.navigateToLoginPage();
-        loginSteps.performLogin(userEmail, userPass);
-        loginSteps.checkLoggedIn(userName);
-    }
-
-    @Test
-    public void invalidLoginTest() {
-        loginSteps.navigateToLoginPage();
-        loginSteps.performLogin(userEmail, "aaaaaaaaa");
-        loginSteps.checkNotLoggedIn();
+    public void validWhishList() {
+        whishListSteps.navigateToLoginPage();
+        whishListSteps.performLogin(userEmail, userPass);
+        whishListSteps.checkIfIsInWishlist();
     }
 
 }
